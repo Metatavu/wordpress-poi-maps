@@ -55,11 +55,13 @@
           $categories = explode(',', str_replace(' ', '', $attrs['categories']));
         }
 
+        $result = "";
         if (!empty($categories)) {
           $categoryArray = array_values($categories);
-          echo sprintf("<input type='hidden' id='mapCategories' data-categories='%s'>", json_encode($categoryArray));
+          $result .= sprintf("<input type='hidden' id='mapCategories' data-categories='%s'>", json_encode($categoryArray));
         }
-        echo '<div id="leafletMap" style="height: 400px;"></div>';
+        $result .= '<div id="leafletMap" style="height: 400px;"></div>';
+        return $result;
       }
 
       public function getMarkers() {
